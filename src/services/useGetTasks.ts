@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import type { ITask } from "../types/task";
 import { useTaskStore } from "../store/useTaskStore";
+import { BASE_URL } from "../utils/constants";
 
 export const useGetTasks = () => {
   const setTasks = useTaskStore((state) => state.setTasks);
@@ -14,7 +15,7 @@ export const useGetTasks = () => {
     const fetchTasks = async () => {
       try {
         setIsLoading(true);
-        const res = await fetch("http://localhost:3001/tasks");
+        const res = await fetch(BASE_URL);
         if (!res.ok) throw new Error("Erreur lors du chargement des tâches");
         const data: ITask[] = await res.json();
         setTasks(data);

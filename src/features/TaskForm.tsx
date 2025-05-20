@@ -1,13 +1,13 @@
 import { useForm } from "react-hook-form";
 import { useTaskStore } from "../store/useTaskStore";
 import type { ITask, TaskStatus } from "../types/task";
+import { BASE_URL } from "../utils/constants";
 
 type TaskFormInput = {
   title: string;
   description?: string;
   status: TaskStatus;
 };
-
 const TaskForm = () => {
   const { addTask } = useTaskStore();
   const { register, handleSubmit, reset } = useForm<TaskFormInput>();
@@ -24,7 +24,7 @@ const TaskForm = () => {
     addTask(newTask);
 
     // Optionnel : POST à l’API simulée
-    fetch("http://localhost:3001/tasks", {
+    fetch(BASE_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newTask),
