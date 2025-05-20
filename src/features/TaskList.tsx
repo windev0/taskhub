@@ -21,7 +21,7 @@ const TaskList = () => {
             }}
             className="bg-blue-600 text-white px-4 py-2 rounded mb-4 sm:mb-0 sm:ml-4"
           >
-            Ajouter
+            <span style={{ fontSize: "20px" }}>+</span> Nouvelle tâche
           </button>
         </div>
       </div>
