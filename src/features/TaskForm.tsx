@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
-import { useTaskStore } from "../store/useTaskStore";
-import type { ITask, TaskStatus } from "../types/task";
-import { BASE_URL } from "../utils/constants";
+import type { TaskData, TaskStatus } from "../types/task";
+import { useNavigate } from "react-router-dom";
+import { useCreateTask } from "../services/useCreateTask";
 
 type TaskFormInput = {
   title: string;
@@ -9,28 +9,36 @@ type TaskFormInput = {
   status: TaskStatus;
 };
 const TaskForm = () => {
-  const { addTask } = useTaskStore();
-  const { register, handleSubmit, reset } = useForm<TaskFormInput>();
+  // const { addTask } = useTaskStore();
+  const { mutate: createTask, isPending } = useCreateTask();
+  const { register, handleSubmit } = useForm<TaskFormInput>();
+  const navigate = useNavigate();
 
   const onSubmit = (data: TaskFormInput) => {
-    const newTask: ITask = {
+    const newTask: TaskData = {
       ...data,
-      id: crypto.randomUUID(),
       createdAt: new Date(),
       updatedAt: new Date(),
     };
 
-    // Ajout local
-    addTask(newTask);
-
-    // Optionnel : POST à l’API simulée
-    fetch(BASE_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newTask),
+    // Appel API
+    createTask(newTask, {
+      onSuccess: () => {
+        navigate("/tasks");
+      },
     });
 
-    reset();
+    // // Ajout local
+    // addTask(newTask);
+
+    // Optionnel : POST à l’API simulée
+    // fetch(BASE_URL, {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(newTask),
+    // });
+
+    // reset();
   };
 
   return (
@@ -54,10 +62,11 @@ const TaskForm = () => {
         <option value="done">Terminé</option>
       </select>
       <button
+        disabled={isPending}
         type="submit"
         className="bg-blue-600 text-white px-4 py-2 rounded"
       >
-        Ajouter
+        {isPending ? "Création..." : "Créer"}
       </button>
     </form>
   );

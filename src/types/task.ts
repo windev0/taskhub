@@ -11,3 +11,12 @@ export interface ITask {
   updatedAt?: Date;
   assignedTo?: string; // utilisateur simulé (plus tard)
 }
+
+export interface TaskData {
+  title: string;
+  description?: string;
+  status: TaskStatus;
+  createdAt: Date;
+  updatedAt?: Date | undefined;
+  assignedTo?: string | undefined;
+}
