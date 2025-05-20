@@ -2,9 +2,10 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
+import Task from "./pages/Task";
 import Contact from "./pages/Contact";
 import MainLayout from "./layouts/MainLayout";
-import Task from "./pages/Task";
+import './App.css';
 
 const App = () => {
   return (
