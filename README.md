@@ -1,5 +1,5 @@
 <!-- Bannière -->
-![TaskHub Banner](![image](https://github.com/user-attachments/assets/102a934e-b42c-48e3-b3ed-464925f042f4)
+![TaskHub Banner](![image]([https://github.com/user-attachments/assets/102a934e-b42c-48e3-b3ed-464925f042f4](https://github.com/windev0/taskhub/blob/main/public/Capture%20d'%C3%A9cran%202025-05-20%20160140.png)
 )
 
 # 📝 TaskHub – Gestionnaire de tâches moderne
