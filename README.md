@@ -1,54 +1,41 @@
-# React + TypeScript + Vite
+<!-- Bannière -->
+![TaskHub Banner](![image](https://github.com/user-attachments/assets/102a934e-b42c-48e3-b3ed-464925f042f4)
+)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 📝 TaskHub – Gestionnaire de tâches moderne
 
-Currently, two official plugins are available:
+> Une application React rapide, stylée et intuitive pour gérer vos tâches quotidiennes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 **Démo en ligne** : [https://taskhub-rho.vercel.app/](https://taskhub-rho.vercel.app/)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ Fonctionnalités
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- ✅ **Créer** une nouvelle tâche
+- 🖊️ **Modifier** une tâche existante
+- 🗑️ **Supprimer** une tâche
+- 🔍 **Filtrer** par titre / mot-clé
+- ↕️ **Trier** les tâches par nom
+- 🟢 **Statut** de complétion (à venir)
+- 🌐 **API Mock** simulée avec Axios + React Query
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠️ Tech Stack
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+| Frontend | Backend (Mock) | Outils |
+|----------|----------------|--------|
+| ⚛️ React + Vite | 🔁 MockAPI | 🌀 Axios |
+| 🧪 React Query | — | 🖌️ TailwindCSS |
+| ⛓️ React Router v6 | — | 🛠️ TypeScript |
+
+---
+
+## 🚀 Installation locale
+
+```bash
+git clone https://github.com/ton-utilisateur/taskhub.git
+cd taskhub
+npm install
+npm run dev
