@@ -2,7 +2,7 @@
 
 export type TaskStatus = "todo" | "in_progress" | "done";
 
-export interface TaskModel {
+export interface ITask {
   id: string; // UUID ou identifiant unique
   title: string;
   description?: string; // champ optionnel

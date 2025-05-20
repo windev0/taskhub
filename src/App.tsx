@@ -5,7 +5,8 @@ import About from "./pages/About";
 import Task from "./pages/Task";
 import Contact from "./pages/Contact";
 import MainLayout from "./layouts/MainLayout";
-import './App.css';
+import "./App.css";
+import TaskForm from "./features/TaskForm";
 
 const App = () => {
   return (
@@ -17,7 +18,8 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/tasks" element={<Task />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/taks" element={<Task />} />
+            <Route path="/tasks/new" element={<TaskForm />} />
+            <Route path="/tasks" element={<Task />}></Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </MainLayout>
